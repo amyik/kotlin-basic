@@ -8,7 +8,7 @@ internal class InheritanceTest{
 
     @Test
     internal fun inheritanceTest() {
-        val child1 = Child2("Jane")
+        val child1 = Child1("Jane")
         val child2 = Child2("John")
 
         assertThat(child1.lastName).isEqualTo("Jane")
