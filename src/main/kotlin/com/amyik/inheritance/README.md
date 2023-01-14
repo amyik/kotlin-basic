@@ -1,4 +1,6 @@
-# Inheritance 
+# Inheritance
+> * sub type class를 정의 해 본다.
+> * super type class의 method를 override 해 본다.
 
 - class상속을 하는 방법은 `자식 class의 이름` 뒤에 `: 부모class이름`을 붙이면 된다.
 ```kotlin
@@ -53,7 +55,7 @@ class Child2 : Parent {
 }
 ```
 
-- 부모 class에 정의된 함수를 자식 class에서 override하려면
+- 부모 class에 구현된 함수를 자식 class에서 `override`하려면
 - 자식 class의 함수에 override 키워드 추가한다.
 - 부모 class의 함수에 open 키워드를 추가한다.
 ```kotlin
@@ -67,5 +69,23 @@ class Child1(lastName: String) : Parent(lastName) {
     override fun sayLastName(): String {
         return "Child1's lastname is $lastName"
     }
+}
+```
+
+- 부모 class에 `abstract`로 정의된 함수를 자식 class에서 `override`하려면
+- 부모 class의 method에 `open` 키워드는 불필요하다. 이유는 class인 경우와 동일하다.
+```kotlin
+abstract class Parent(val lastName: String) {
+  open fun sayLastName(): String {
+    return "Parent's lastname is $lastName"
+  }
+  abstract fun sayAge(): Int //abstract 함수는 final이 아니다.
+}
+
+class Child1(lastName: String) : Parent(lastName) {
+  override fun sayLastName(): String {
+    return "Child1's lastname is $lastName"
+  }
+  override fun sayAge(): Int = 20
 }
 ```
