@@ -39,3 +39,16 @@ class Child2 : Parent {
     constructor(lastName: String) : super(lastName)
 }
 ```
+
+- 부모 class가 `abstract`라면 `open`키워드는 불필요하다. 당연히 final이 아니므로.
+```kotlin
+abstract class Parent(val lastName: String) {
+}
+
+class Child1(lastName: String) : Parent(lastName) {
+}
+
+class Child2 : Parent {
+  constructor(lastName: String) : super(lastName)
+}
+```

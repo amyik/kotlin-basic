@@ -1,6 +1,6 @@
 package com.amyik.inheritance
 
-open class Parent(val lastName: String) {
+abstract class Parent(val lastName: String) {
 }
 
 class Child1(lastName: String) : Parent(lastName) {
