@@ -52,3 +52,20 @@ class Child2 : Parent {
   constructor(lastName: String) : super(lastName)
 }
 ```
+
+- 부모 class에 정의된 함수를 자식 class에서 override하려면
+- 자식 class의 함수에 override 키워드 추가한다.
+- 부모 class의 함수에 open 키워드를 추가한다.
+```kotlin
+abstract class Parent(val lastName: String) {
+    open fun sayLastName(): String { // to make this method non-final
+        return "Parent's lastname is $lastName"
+    }
+}
+
+class Child1(lastName: String) : Parent(lastName) {
+    override fun sayLastName(): String {
+        return "Child1's lastname is $lastName"
+    }
+}
+```

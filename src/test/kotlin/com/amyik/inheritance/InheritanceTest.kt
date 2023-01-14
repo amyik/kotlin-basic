@@ -14,4 +14,10 @@ internal class InheritanceTest{
         assertThat(child1.lastName).isEqualTo("Jane")
         assertThat(child2.lastName).isEqualTo("John")
     }
+
+    @Test
+    internal fun `sayLastName`() {
+        val child1 = Child1("Jane")
+        assertThat(child1.sayLastName()).isEqualTo("Child1's lastname is Jane")
+    }
 }
