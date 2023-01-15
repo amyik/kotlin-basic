@@ -7,11 +7,15 @@ abstract class Parent(val lastName: String) {
     abstract fun sayAge(): Int //abstract 함수는 final이 아니다.
 }
 
-class Child1(lastName: String) : Parent(lastName) {
+open class Child1(lastName: String) : Parent(lastName) {
     override fun sayLastName(): String {
         return "Child1's lastname is $lastName"
     }
-    override fun sayAge(): Int = 20
+    final override fun sayAge(): Int = 20
+}
+
+class GrandChild(lastName: String) : Child1(lastName) {
+//    override fun sayAge(): Int = 5 // 'sayAge' in 'Child1' is final and cannot be overridden
 }
 
 class Child2 : Parent {

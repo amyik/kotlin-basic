@@ -89,3 +89,39 @@ class Child1(lastName: String) : Parent(lastName) {
   override fun sayAge(): Int = 20
 }
 ```
+
+- 부모의 함수를 `overide`한 함수는 명시하지 않아도`open`이다.
+- 즉, 다시 `override`가능 하다.
+```kotlin
+abstract class Parent(val lastName: String) {
+    open fun sayLastName(): String {
+        return "Parent's lastname is $lastName"
+    }
+    abstract fun sayAge(): Int
+}
+
+open class Child1(lastName: String) : Parent(lastName) {
+    override fun sayLastName(): String {
+        return "Child1's lastname is $lastName"
+    }
+    override fun sayAge(): Int = 20
+}
+
+class GrandChild(lastName: String) : Child1(lastName) {
+    override fun sayAge(): Int = 5
+}
+```
+
+- `override`가 안되게 하려면 명시적으로 `final`키워드를 붙여준다.
+```kotlin
+open class Child1(lastName: String) : Parent(lastName) {
+    override fun sayLastName(): String {
+        return "Child1's lastname is $lastName"
+    }
+    final override fun sayAge(): Int = 20
+}
+
+class GrandChild(lastName: String) : Child1(lastName) {
+//    override fun sayAge(): Int = 5 // 'sayAge' in 'Child1' is final and cannot be overridden
+}
+```
